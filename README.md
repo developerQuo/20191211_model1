@@ -5,12 +5,12 @@
 ***
 <p align="center">
 <img src="/img/system_architecture.JPG" width="80%" height="60%" title="시스템아키텍처"></img>
-</p>
-* JSP에서 사용자의 요청에 응답하고 웹페이지를 보여주도록 구현.   
-* Dao에서는 interface와 implement로 나누어 구현.   
-	+ ConnProperty 클래스에는 DB로그인 정보와 JDBC드라이버 정보를 저장. connection을 닫는 함수도 함께 정의.   
-	+ Chaebun 클래스에는 회원번호를 생성. (구분자1자리 + 숫자4자리)   
-	+ SqlMap 클래스에는 채번, CRUD 쿼리를 StringBuffer로 작성.   
+</p>   
+* JSP에서 사용자의 요청에 응답하고 웹페이지를 보여주도록 구현.
+* Dao에서는 interface와 implement로 나누어 구현.
+	+ ConnProperty 클래스에는 DB로그인 정보와 JDBC드라이버 정보를 저장. connection을 닫는 함수도 함께 정의.
+	+ Chaebun 클래스에는 회원번호를 생성. (구분자1자리 + 숫자4자리)
+	+ SqlMap 클래스에는 채번, CRUD 쿼리를 StringBuffer로 작성.
 
 ### 메인 페이지
 ***
