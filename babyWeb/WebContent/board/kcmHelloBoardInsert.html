@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시판 글쓰기</title>
+		<style>
+			.tt{
+				text-align : center;
+			}
+		</style>
+		<script language="javaScript">
+			function boardWriteCheck(){
+				alert("(log) boardWriteCheck() entered");
+				
+				//alert(!document.getElementById("kno").value);
+				if( !document.getElementById("ksubject").value ){
+					alert("제목을 입력하세요!");
+					document.getElementById("ksubject").focus();
+					return;
+				}
+				if( !document.getElementById("kname").value ){
+					alert("이름을 입력하세요!");
+					document.getElementById("kname").focus();
+					return;
+				}
+				if( !document.getElementById("kpw").value ){
+					alert("비밀번호를 입력하세요!");
+					document.getElementById("kpw").focus();
+					return;
+				}
+				if( !document.getElementById("kmemo").value ){
+					alert("내용을 입력하세요!");
+					document.getElementById("kmemo").focus();
+					return;
+				}
+				//http://localhost:8088/babyWeb/board/kcmHelloBoardInsertOK.jsp
+				document.boardWrite.action="/babyWeb/board/kcmHelloBoardInsertOK.jsp";
+				document.boardWrite.submit();				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<form name="boardWrite" method="POST">
+			<table border="1" align="center">
+				<tr><td colspan="2" align="center">게시판 글쓰기</td></tr>
+				<tr>
+					<td class="tt">글번호</td>
+					<td><input type="text" name="kno" id="kno" size="20" disabled></td>
+				</tr>
+				<tr>
+					<td class="tt">제목</td>
+					<td><input type="text" name="ksubject" id="ksubject" size="53" ></td>
+				</tr>
+				<tr>
+					<td class="tt">이름</td>
+					<td><input type="text" name="kname" id="kname" size="53" ></td>
+				</tr>
+				<tr>
+					<td class="tt">비밀번호</td>
+					<td><input type="password" name="kpw" id="kpw" size="20" ></td>
+				</tr>
+				<tr>
+					<td class="tt">입력일</td>
+					<td><input type="text" name="kinsertdate" id="kinsertdate" size="20"  disabled></td>
+				</tr>
+				<tr>
+					<td class="tt">수정일</td>
+					<td><input type="text" name="kupdatedate" id="kupdatedate" size="20"  disabled></td>
+				</tr>
+				<tr>
+					<td class="tt">내용</td>
+					<td><textarea name="kmemo" id="kmemo" rows="10" cols="50"></textarea></td>
+				</tr>
+				<tr>
+					<td class="tt" colspan="2">
+						<input type="hidden" name="ISUD_TYPE" value="I">
+						<input type="button" value="보내기" onclick="boardWriteCheck();">
+						<input type="reset" value="다시">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

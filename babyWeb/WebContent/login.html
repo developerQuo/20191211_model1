@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 2byte를 지원하는 인코딩 방식 -->
+		<meta charset="EUC-KR">
+		<!-- UTF-8은 1byte 지원하는 인코딩 방식 -->
+		<title>첫번째 웹페이지</title>
+		<script type="text/javascript">
+			function loginCheck(){
+				//alert("loginCheck() 함수");
+				// action = "./login.jsp"
+				/* // 이름으로 찾는 방식
+				window.document.loginForm.action="./login.jsp";
+				alert(window.document.loginForm.action);
+				window.document.loginForm.submit();
+				*/
+				/* // 배열로 찾는 방식 - 배열이 익숙해지면 이 방식으로 찾는게 더 편함. (OBJ 이용)
+				window.document.forms[0].action="./login.jsp";
+				alert(window.document.forms[0].action);
+				window.document.forms[0].submit();
+				*/
+				/*
+				var idVal = document.getElementById("idVal").value;
+				alert(idVal);
+				var id = document.getElementById("idVal");
+				alert(id);
+				var pwVal = document.loginForm.pwVal.value;
+				alert(pwVal);
+				var pw = document.loginForm.pwVal;
+				alert(pw);
+				*/
+				// Element는 태그 객체 그 자체.
+				alert(document.getElementById("idVal").value);
+				if (!document.getElementById("idVal").value){
+					alert("[아이디]를 입력하세요.");
+					document.getElementById("idVal").focus();
+					return;
+				}
+				if (!document.getElementById("pwVal").value){
+					alert("[비밀번호]를 입력하세요.");
+					document.getElementById("pwVal").focus();
+					return;
+				}
+				// window는 최상위 객체이므로 생략가능
+				// url앞에 #을 사용하면 페이지가 넘어가지 않음.
+				document.loginForm.action="login.jsp";
+				//alert(document.loginForm.action);
+				document.loginForm.submit();
+				
+			}
+			
+			function registerMember(){
+				//http://localhost:8088/babyWeb/registerKCMMember.html
+				location.href="/babyWeb/registerKCMMember.html";
+			}
+		</script>
+	</head>
+	<body>		
+		<!-- 
+			form 태그는 클라이언트에서 서버로 데이터를 전송하는 태그.
+			html에서 서버에 데이터를 전송하는 태그는 form 태그가 유일하다. + Ajax가 있다.
+		-->
+		<!-- http://localhost:8088/babyWeb/login.jsp -->
+		<!-- http://localhost:8088/babyWeb/login.jsp?id=aa&pw=bb -->
+		<form name="loginForm" 
+			  id="loginForm"
+			  method = "GET">
+			<table align="center" border="1">
+				<tr>
+					<td colspan="2" align="center"><label> 로그인 </label></td>
+				</tr>
+				<tr>
+					<td align="center"><label for="id"> 아이디 </label></td>
+					<td align="center"><input type = "text" name = "id" id="idVal"></td>
+				</tr>
+				<tr>
+					<td align="center"><label for="pw"> 비밀번호 </label></td>
+					<td align="center"><input type = "password" name = "pw" id="pwVal"></td>
+				</tr>
+				<!-- <input type = "submit" value = "submit"> -->
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="회원가입" onclick="registerMember()">
+						<input type="button" value="확인" onclick="loginCheck()">
+						<input type="reset" value="되돌리기">
+					</td>
+				</tr>
+				
+			</table>
+			
+		</form>
+	</body>
+</html>

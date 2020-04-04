@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>index page</title>
+		<script type="text/javascript">
+			function funcSelector(selector){
+				alert("(log) funcSelector entered");
+				
+				if (selector == 'SA'){
+					//http://localhost:8088/babyWeb/members.jsp
+					document.registerForm.action = "/babyWeb/selectKcmMember.jsp";
+					alert(document.registerForm.action);
+				}
+				if (selector == 'SN'){
+					if (!document.getElementById("memVal").value){
+						alert("회원번호를 입력하세요!!!");
+						document.getElementById("memVal").focus();
+						return;
+					}
+					alert("회원번호로 검색");
+					document.registerForm.action = "/babyWeb/searchKcmMember.jsp";
+					alert(document.registerForm.action);
+				}
+				if (selector == 'LS'){
+					if (!document.getElementById("idVal").value){
+						alert("아이디를 기억나는 대로 입력하세요!!!");
+						document.getElementById("idVal").focus();
+						return;
+					}
+					document.registerForm.action = "/babyWeb/likeSearchKcmMember.jsp";
+					alert(document.registerForm.action);
+				}
+				if (selector == 'I'){
+					if (!document.getElementById("idVal").value){
+						alert("아이디를 입력하세요!!!");
+						document.getElementById("idVal").focus();
+						return;
+					}
+					if (!document.getElementById("pwVal").value){
+						alert("비밀번호를 입력하세요!!!");
+						document.getElementById("pwVal").focus();
+						return;
+					}
+					if (!document.getElementById("emailVal").value){
+						alert("이메일 주소를 입력하세요!!!");
+						document.getElementById("emailVal").focus();
+						return;
+					}
+					//http://localhost:8088/babyWeb/register_member.jsp
+					document.registerForm.action = "/babyWeb/insertKcmMember.jsp";
+					alert(document.registerForm.action);
+				}
+				if (selector == 'U'){
+					if (!document.getElementById("memVal").value){
+						alert("회원번호를 입력하세요!!!");
+						document.getElementById("memVal").focus();
+						return;
+					}
+					if (!document.getElementById("pwVal").value){
+						alert("비밀번호를 입력하세요!!!");
+						document.getElementById("pwVal").focus();
+						return;
+					}
+					document.registerForm.action = "/babyWeb/updateKcmMember.jsp";
+					alert(document.registerForm.action);
+				}
+				if (selector == 'D'){
+					if (!document.getElementById("memVal").value){
+						alert("회원번호를 입력하세요!!!");
+						document.getElementById("memVal").focus();
+						return;
+					}
+					document.registerForm.action = "/babyWeb/deleteKcmMember.jsp";
+					alert(document.registerForm.action);
+				}
+
+				document.registerForm.submit();
+			}
+		</script>
+	</head>
+	<body>
+		<form name="registerForm"
+			  method="POST">
+			<table align="center" border="1">
+				<tr><td colspan="2" align="center">회원정보</td></tr>
+				<tr>
+					<td align="center" width="100" align="center">회원번호</td>
+					<td align="center" width="250">
+						&nbsp;<input type="text" name="mem" id="memVal"><br>
+						<font size="2">* 수정/삭제/조회 시 회원번호 사용</font>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">아이디</td>
+					<td align="center"><input type="text" name="id" id="idVal"></td>
+				</tr>
+				<tr>
+					<td align="center">비밀번호</td>
+					<td align="center"><input type="password" name="pw" id="pwVal"></td>
+				</tr>
+				<tr>
+					<td align="center">이름</td>
+					<td align="center"><input type="text" name="name" id="nameVal"></td>
+				</tr>
+				<tr>
+					<td align="center">이메일</td>
+					<td align="center"><input type="text" name="email" id="emailVal"></td>
+				</tr>
+				<tr>
+					<td align="center">전화번호</td>
+					<td align="center"><input type="text" name="hp" id="hpVal"></td>
+				</tr>
+				<tr>
+					<td align="center">생년월일 (yyyy.mm.dd)</td>
+					<td align="center"><input type="text" name="birth" id="birthVal"></td>
+				</tr>
+				<tr>
+					<td align="center">도로명 우편번호</td>
+					<td align="center"><input type="text" name="postno" id="postnoVal"></td>
+				</tr>
+				<tr>
+					<td align="center">도로명 주소</td>
+					<td align="center"><input type="text" name="juso" id="jusoVal"></td>
+				</tr>
+				<tr>
+					<td colspan="5" align="center">
+						<input type="button" value="조회" onclick="funcSelector('SA');">
+						<input type="button" value="회원번호 검색" onclick="funcSelector('SN');">
+						<input type="button" value="키워드 검색" onclick="funcSelector('LS');">
+						<input type="button" value="회원가입" onclick="funcSelector('I');">
+						<input type="button" value="비밀번호 수정" onclick="funcSelector('U');">
+						<input type="button" value="삭제" onclick="funcSelector('D');">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="reset" value="초기화">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
+
+<!-- function registerInfo(){
+				alert("registerInfo() entered");
+				if (!document.getElementById("idVal").value){
+					alert("아이디를 입력하세요!!!");
+					document.getElementById("idVal").focus();
+					return;
+				}
+				if (!document.getElementById("pwVal").value){
+					alert("비밀번호를 입력하세요!!!");
+					document.getElementById("pwVal").focus();
+					return;
+				}
+				if (!document.getElementById("emailVal").value){
+					alert("이메일 주소를 입력하세요!!!");
+					document.getElementById("emailVal").focus();
+					return;
+				}
+				
+				//var id = document.getElementById("idVal");
+				//var pw = document.getElementById("pwVal");
+				//var name = document.getElementById("nameVal");
+				//var email = document.getElementById("emailVal");
+				//var hp = document.getElementById("hpVal");
+				//var birth = document.getElementById("birthVal");
+				//var postno = document.getElementById("postnoVal");
+				//var juso = document.getElementById("jusoVal");
+				document.registerForm.action="register_member.jsp";
+				alert(document.registerForm);
+				document.registerForm.submit();
+				
+			} -->
