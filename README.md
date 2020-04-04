@@ -6,6 +6,7 @@
 <p align="center">
 <img src="/img/system_architecture.JPG" width="80%" height="60%" title="시스템아키텍처"></img>
 </p>   
+   
 * JSP에서 사용자의 요청에 응답하고 웹페이지를 보여주도록 구현.
 * Dao에서는 interface와 implement로 나누어 구현.
 	+ ConnProperty 클래스에는 DB로그인 정보와 JDBC드라이버 정보를 저장. connection을 닫는 함수도 함께 정의.
